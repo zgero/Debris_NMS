@@ -12,7 +12,7 @@ class Streams extends Component {
     streamsData: [],
     loading: false,
     visible: false,
-    password: ''
+    password: 'debris_zgero_1105'
   };
 
   columns = [{
@@ -95,7 +95,7 @@ class Streams extends Component {
     let sign = '';
     if (this.state.password) {
       let hash = md5.create();
-      let ext = Date.now() + 30000;
+      let ext = Date.now() + 86400;
       hash.update(`/${record.app}/${record.name}-${ext}-${this.state.password}`);
       let key = hash.hex();
       sign = `?sign=${ext}-${key}`;
@@ -160,13 +160,6 @@ class Streams extends Component {
   render() {
     return (
       <Card>
-        <Input.Password
-          size="large"
-          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          style={{ marginBottom: "16px" }}
-          placeholder="input password"
-          onChange={this.updatePass}
-          value={this.state.password} />
         <Table
           dataSource={this.state.streamsData}
           columns={this.columns}

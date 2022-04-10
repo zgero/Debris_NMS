@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import Dashboard from "./Dashboard";
 import Profile from "./Profile";
 import Streams from "./Streams";
+import Key from "./Key";
 
 import "./App.css"
 
@@ -13,9 +14,9 @@ const { Header, Sider, Content, Footer } = Layout;
 
 class App extends Component {
 
-    fullTitle = "NodeMediaServer";
+    fullTitle = "Debris Production";
 
-    shortTitle = "NMS";
+    shortTitle = "Debris";
 
     state = {
         collapsed: false,
@@ -67,6 +68,12 @@ class App extends Component {
                                     <span>Profile</span>
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item key="/admin/key">
+                                <Link to="/admin/key">
+                                    <Icon type="key" />
+                                    <span>Keygen</span>
+                                </Link>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout>
@@ -83,9 +90,10 @@ class App extends Component {
                             <Route exact path="/admin" component={Dashboard} />
                             <Route path="/admin/streams" component={Streams} />
                             <Route path="/admin/profile" component={Profile} />
+                            <Route path="/admin/key" component={Key} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
-                            Node-Media-Server ©2019 Created by <a href="http://nodemedia.cn" rel="noopener noreferrer" target="_blank">NodeMedia</a>.
+                            Debris Production Inc. ⓒ 2021-2022 Created by <a href="https://debrisprod.com/" rel="noopener noreferrer" target="_blank">Debris Production</a>.
                         </Footer>
                     </Layout>
                 </Layout>
