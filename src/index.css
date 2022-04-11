@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.buttonInput input{
+  width: calc(100% - 200px)
+}
+
+.buttonInput {
+  width: 200px
+}
+
+.invalid {
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+}

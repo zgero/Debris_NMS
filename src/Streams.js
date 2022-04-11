@@ -78,7 +78,7 @@ class Streams extends Component {
 
   componentDidMount() {
     this.setState({
-      password: this.cookies.get('pass')
+      //password: this.cookies.get('pass')
     })
     this.fetch();
   }
@@ -88,7 +88,7 @@ class Streams extends Component {
     this.setState({
       password
     });
-    this.cookies.set('pass', password, { path: '/', maxAge: 31536000 })
+    //this.cookies.set('pass', password, { path: '/', maxAge: 31536000 })
   }
 
   openVideo = (record) => {
