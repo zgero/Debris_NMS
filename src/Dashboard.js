@@ -255,7 +255,7 @@ class Dashboard extends Component {
 
     return (
       <Row style={{ margin: "0 -12px" }}>
-        <Col span={12} style={{ padding: "0 12px" }}>
+        <Col className={"ant-col ant-col-xs-24 ant-col-lg-12"} style={{ padding: "6px 6px"}}>
           <Card>
             <ReactEchartsCore
               echarts={echarts}
@@ -266,7 +266,7 @@ class Dashboard extends Component {
           </Card>
 
         </Col>
-        <Col span={12} style={{ padding: "0 12px" }}>
+        <Col className={"ant-col ant-col-xs-24 ant-col-lg-12"} style={{ padding: "6px 6px"}}>
           <Card>
             <ReactEchartsCore
               echarts={echarts}
@@ -277,7 +277,7 @@ class Dashboard extends Component {
           </Card>
         </Col>
 
-        <Col span={12} style={{ padding: "0 12px", marginTop: "16px" }}>
+        <Col className={"ant-col ant-col-xs-24 ant-col-lg-12"} style={{ padding: "6px 6px"}}>
           <Card>
             <ReactEchartsCore
               echarts={echarts}
@@ -287,7 +287,7 @@ class Dashboard extends Component {
             />
           </Card>
         </Col>
-        <Col span={12} style={{ padding: "0 12px", marginTop: "16px" }}>
+        <Col className={"ant-col ant-col-xs-24 ant-col-lg-12"} style={{ padding: "6px 6px"}}>
           <Card>
             <ReactEchartsCore
               echarts={echarts}

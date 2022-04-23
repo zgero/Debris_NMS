@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Icon, Card, Table, Modal, Input } from "antd";
 import { secondsToDhmsSimple } from "./Util";
-import Flvplayer from "./Flvplayer";
+import {ReactFlvPlayer} from 'react-flv-player'
 import Cookies from 'universal-cookie';
 import md5 from 'js-md5';
+import axios from "axios";
 
 class Streams extends Component {
   cookies = new Cookies();
@@ -12,7 +13,6 @@ class Streams extends Component {
     streamsData: [],
     loading: false,
     visible: false,
-    password: 'debris_zgero_1105'
   };
 
   columns = [{
@@ -92,21 +92,29 @@ class Streams extends Component {
   }
 
   openVideo = (record) => {
-    let sign = '';
-    if (this.state.password) {
-      let hash = md5.create();
-      let ext = Date.now() + 86400;
-      hash.update(`/${record.app}/${record.name}-${ext}-${this.state.password}`);
-      let key = hash.hex();
-      sign = `?sign=${ext}-${key}`;
+    let body = {
+      'appName': record.app,
+      'streamName': record.name,
     }
-    this.videoModal = Modal.info({
-      icon: null,
-      title: "Video Player",
-      width: 640,
-      height: 480,
-      content: <Flvplayer url={`/${record.app}/${record.name}.flv${sign}`} type="flv" />,
-    });
+    let headers = {
+      'Content-Type' : 'application/json'
+    }
+
+    axios.post('https://debris.live/rtmp/key/',body,{headers: headers})
+        .then((sign) =>{return `?sign=${sign.data}`})
+        .then((sign)=>{
+          this.videoModal = Modal.info({
+            icon: null,
+            title: "Video Player",
+            width: 640,
+            height: 480,
+            content: <ReactFlvPlayer url={`/${record.app}/${record.name}.flv${sign}`} type="flv" />,
+          });
+
+        })
+        .catch((e)=>{
+          console.log(e)
+        })
   }
 
   fetch = () => {

@@ -20,3 +20,7 @@
   font-size: 20px;
   text-align: center;
 }
+
+#buttonGroup Button{
+  border-radius: 0;
+}

@@ -6,9 +6,9 @@ import Dashboard from "./Dashboard";
 import Profile from "./Profile";
 import Streams from "./Streams";
 import Key from "./Key";
+import "./App.css";
 
-import "./App.css"
-
+require('dotenv').config();
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -19,7 +19,7 @@ class App extends Component {
     shortTitle = "Debris";
 
     state = {
-        collapsed: false,
+        collapsed: true,
         title: this.fullTitle,
         pathname: "/"
     };
